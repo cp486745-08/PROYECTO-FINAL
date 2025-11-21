@@ -1,119 +1,87 @@
+/* ======================================= */
+/* ESTILOS GLOBALES Y FUENTES              */
+/* ======================================= */
 
+@font-face {
+    font-family: 'New Rocker Custom';
+    src: url('fonts/header/NewRocker-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+body {
+    /* Corregido: Texto oscuro para que sea visible en fondo claro (whitesmoke) */
+    font-family: 'Nunito-Medium', sans-serif;
+    font-size: 16px; 
+    line-height: 1.5;
+    background-color: whitesmoke;
+    color: #444; /* Color de texto base para el contenido general */
+}
 
+/* ======================================= */
+/* ENCABEZADO                              */
+/* ======================================= */
 
-
-header h1{
+header {
+    font-family: 'New Rocker Custom', serif;
     text-align: center;
-    font-size:6em;
+    padding: 30px;
+    background-color: #eee;
+}
+
+header h1 {
+    font-family: 'New Rocker Custom', serif;
+    font-size: 6em; 
+    text-transform: capitalize;
+    text-align: center;
     border-top: 3px solid #333;
-    border-bottom:  3px solid #333;
+    border-bottom: 3px solid #333;
     padding: 10px 0;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
+/* ======================================= */
+/* CLASES DE UTILIDAD GENERAL              */
+/* ======================================= */
 
-.w-70{
+/* Se mantiene la clase de utilidad */
+.w-70 {
     width: 70% !important;
-
 }
 
-
-/* -------------------------------------- */
-/* 1. Contenedor Principal del Carrusel   */
-/* -------------------------------------- */
-.w-70 { /* Asegúrate de que esta clase esté definida si la usas en HTML */
-    width: 70% !important; 
-}
+/* ======================================= */
+/* CARRUSEL Y MINI-CARDS                   */
+/* ======================================= */
 
 .carousel-contenedor-relativo {
-    position: relative; /* ¡CRUCIAL para el posicionamiento del overlay! */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    background-color: #f8f9fa; /* Fondo si el carrusel tiene un padding o margen interno */
-    overflow: hidden; /* Esto es importante para que el degradado y las imágenes respeten los bordes redondeados */
-    /* Asegúrate de que los bordes redondeados los defina 'rounded-3' de Bootstrap o aquí directamente: */
-    /* border-radius: 0.3rem; si no usas rounded-3 */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa;
+    overflow: hidden;
 }
-
 
 .carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit:contain;
+    object-fit: contain;
     display: block;
 }
 
+/* --- ESTILOS DE COLUMNAS (MANTENIDOS para que Bootstrap controle el layout) --- */
 
-
-
-
-
-
-/* --- LAYOUT GENERAL --- */
+/* No se necesita CSS de layout aquí (ni display: grid/flex) si usas Bootstrap row/col */
 .content-layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* (3 columnas iguales) */
-    gap: 20px;
     padding: 20px;
+    gap: 20px; /* Si usas Bootstrap, el padding y margin manejan el espacio, pero se mantiene el padding */
 }
 
-body {
-    font-family: "Playfair Display", serif;
-    background-color: whitesmoke;
-
-    color:whitesmoke
-}
-
-/*
-Si quieres lo de tu alternativa en la libreta:
-grid-template-columns: 1fr 2fr 1fr;
-*/
-
-/* --- COLUMNA IZQUIERDA --- */
-.left-column {
-    display: flex;
-    flex-direction: column;
+.left-column,
+.right-column {
+    /* Bootstrap maneja el layout, solo aplicamos estilos internos si son necesarios */
     gap: 15px;
 }
 
-/* --- MINI TARJETAS (las de tu dibujo) --- */
-.mini-card {
-    display: flex;
-    flex-direction: column;
-    background: #df91b5;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-.mini-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.mini-card h3 {
-    margin: 10px 0 5px;
-    font-size: 1.1rem;
-}
-
-.mini-card p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-
-
-
-
-.right-column {
-    display:flex;
-    flex-direction: column;
-    gap:20px;
-
-}
+/* --- MINI TARJETAS (CARD) --- */
 
 .mini-card {
     display: flex;
@@ -124,6 +92,7 @@ grid-template-columns: 1fr 2fr 1fr;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 25px; 
+    color: #333; /* Asegura la visibilidad del texto en el fondo rosa */
 }
 
 .mini-card img {
@@ -143,98 +112,68 @@ grid-template-columns: 1fr 2fr 1fr;
     line-height: 1.4;
 }
 
-.fragmento-contenedor{
-    max-width: 700px;
+/* ======================================= */
+/* FRAGMENTOS (TEXTO/IMAGEN)               */
+/* ======================================= */
+
+.fragmento-contenedor {
+    max-width: 800px; 
     margin: 40px auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-
- .fragmento-contenedor h2{
+.fragmento-contenedor h2 {
     text-align: center;
-    width:100%;
- }
- 
+    width: 100%;
+    color: #333; 
+}
 
- .fragmento-contenedor img{
+.fragmento-contenedor img {
+    width: 60%; 
     max-width: 100%;
-    height:auto;
-    margin: 20px 0;
- }
-
- .fragmento-contenedor{
-    text-align: justify;
-    margin-top: 10px;
- }
-
-
-
- .fragmento-contenedor {
-    max-width: 800px;
-    margin: 40px auto;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    padding: 20px;
- }
-
- .fragmento-contenedor img{
-    width: 60%;
-    height:auto;
+    height: auto;
     display: block;
     margin: 20px 0;
- }
+}
 
-
- .fragmento-contenedor p{
+.fragmento-contenedor p {
     max-width: 100%;
     text-align: justify;
     margin-top: 10px;
- }
+    color: #444; 
+}
 
+/* ======================================= */
+/* STICKERS (PEGATINAS)                    */
+/* ======================================= */
 
-
-
-
-/* 1. Establecer el punto de referencia al BODY */
 .main {
-    /* ... (tus estilos existentes) ... */
-    /* ¡CLAVE! Esto permite que los stickers se posicionen en relación a todo el cuerpo del documento, no solo a la ventana visible. */
-    position: relative; 
+    position: relative;
 }
 
-/* 2. Modificar el contenedor (Asegurar que no estorbe) */
 .sticker-container {
-    /* Ya no necesita ser relative porque el body es la referencia. */
-    /* Lo mantenemos para agrupar, pero eliminamos el pointer-events si no lo tenías antes. */
     width: 100%;
-    /* Aseguramos que no ocupe espacio adicional en el flujo normal del documento */
-    height: 0; 
-    z-index: 0; 
+    height: 0;
+    z-index: 0;
 }
 
-/* 3. Modificar el estilo general del sticker */
 .sticker-img {
-    /* ¡CAMBIO CLAVE! Hace que se muevan con el scroll. */
-    position: absolute; 
-    width: 80px; 
+    position: absolute;
+    width: 80px;
     height: auto;
-    border-radius: 3px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.2s ease-in-out; 
-    pointer-events: auto; 
-    z-index: 10; /* Los mantiene por encima del contenido principal. */
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    pointer-events: auto;
+    z-index: 10;
 }
 
-/* Posicionamiento individual de cada sticker (Ajuste para evitar el carrusel) */
-
-/* Valores Originales (aproximados) + 399px */
-
-.sticker-1 { top: 599px; left: 3%; transform: rotate(-5deg); } 
-.sticker-2 { top: 999px; right: 5%; transform: rotate(10deg); width: 60px; } 
+/* Posicionamiento individual (Mantenido tal cual) */
+.sticker-1 { top: 599px; left: 3%; transform: rotate(-5deg); }
+.sticker-2 { top: 999px; right: 5%; transform: rotate(10deg); width: 60px; }
 .sticker-3 { top: 1599px; right: 30%; transform: rotate(3deg); }
 .sticker-4 { top: 2199px; left: 2%; transform: rotate(-12deg); }
 .sticker-5 { top: 699px; left: 40%; transform: rotate(8deg); }
@@ -246,31 +185,22 @@ grid-template-columns: 1fr 2fr 1fr;
 .sticker-11 { top: 1999px; left: 50%; transform: rotate(-15deg); }
 
 
-@font-face{
-    font-family: 'New Rocker Custom';
-    src: url('fonts/header/NewRocker-Regular.ttf') format('truetyp');
-    font-weight: normal;
-    font-style: normal;
+/* ======================================= */
+/* RESPONSIVIDAD MÍNIMA (MEDIA QUERY)      */
+/* ======================================= */
+
+/* Ajustes para pantallas de Móviles (menos de 768px) */
+@media (max-width: 767px) {
+    
+    header h1 {
+        font-size: 3em; /* Reduce el tamaño del título grande en móvil */
+    }
+
+    .content-layout {
+        padding: 10px;
+    }
+
+    .fragmento-contenedor img {
+        width: 80%;
+    }
 }
-
- body {
-    font-family:'Nunito-Medium', sans-serif;
-    font-size:3em;
-    line-height:1.5;
-    color:#444;
- }
-
-
- header {
-    font-family: 'New Rocker Custom', Bold;
-    font-size: 3em;
-    text-align: center;
-    padding: 30px;
-    background-color:#eee;
-    text-decoration-color:rgb(235, 6, 82)
- }
- 
- header h1{ 
-    font-family:'New Rocker Custom', Bold;
-    text-transform: capitalize;
- }
