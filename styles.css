@@ -1,0 +1,220 @@
+
+
+
+
+
+header h1{
+    text-align: center;
+    font-size:6em;
+    border-top: 3px solid #333;
+    border-bottom:  3px solid #333;
+    padding: 10px 0;
+    margin-bottom:20px;
+}
+
+
+.w-70{
+    width: 70% !important;
+
+}
+
+
+/* -------------------------------------- */
+/* 1. Contenedor Principal del Carrusel   */
+/* -------------------------------------- */
+.w-70 { /* Asegúrate de que esta clase esté definida si la usas en HTML */
+    width: 70% !important; 
+}
+
+.carousel-contenedor-relativo {
+    position: relative; /* ¡CRUCIAL para el posicionamiento del overlay! */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #f8f9fa; /* Fondo si el carrusel tiene un padding o margen interno */
+    overflow: hidden; /* Esto es importante para que el degradado y las imágenes respeten los bordes redondeados */
+    /* Asegúrate de que los bordes redondeados los defina 'rounded-3' de Bootstrap o aquí directamente: */
+    /* border-radius: 0.3rem; si no usas rounded-3 */
+}
+
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    display: block;
+}
+
+
+
+
+
+
+
+/* --- LAYOUT GENERAL --- */
+.content-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* (3 columnas iguales) */
+    gap: 20px;
+    padding: 20px;
+}
+
+body {
+    font-family: "Playfair Display", serif;
+    background-color: whitesmoke;
+
+    color:whitesmoke
+}
+
+/*
+Si quieres lo de tu alternativa en la libreta:
+grid-template-columns: 1fr 2fr 1fr;
+*/
+
+/* --- COLUMNA IZQUIERDA --- */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- MINI TARJETAS (las de tu dibujo) --- */
+.mini-card {
+    display: flex;
+    flex-direction: column;
+    background: #df91b5;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.mini-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.mini-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.mini-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+
+
+
+.right-column {
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+
+}
+
+.mini-card {
+    display: flex;
+    flex-direction: column;
+    background: #df91b5;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 25px; 
+}
+
+.mini-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.mini-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.mini-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* 1. Establecer el punto de referencia al BODY */
+.main {
+    /* ... (tus estilos existentes) ... */
+    /* ¡CLAVE! Esto permite que los stickers se posicionen en relación a todo el cuerpo del documento, no solo a la ventana visible. */
+    position: relative; 
+}
+
+/* 2. Modificar el contenedor (Asegurar que no estorbe) */
+.sticker-container {
+    /* Ya no necesita ser relative porque el body es la referencia. */
+    /* Lo mantenemos para agrupar, pero eliminamos el pointer-events si no lo tenías antes. */
+    width: 100%;
+    /* Aseguramos que no ocupe espacio adicional en el flujo normal del documento */
+    height: 0; 
+    z-index: 0; 
+}
+
+/* 3. Modificar el estilo general del sticker */
+.sticker-img {
+    /* ¡CAMBIO CLAVE! Hace que se muevan con el scroll. */
+    position: absolute; 
+    width: 80px; 
+    height: auto;
+    border-radius: 3px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.2s ease-in-out; 
+    pointer-events: auto; 
+    z-index: 10; /* Los mantiene por encima del contenido principal. */
+}
+
+/* Posicionamiento individual de cada sticker (Ajuste para evitar el carrusel) */
+
+/* Valores Originales (aproximados) + 399px */
+
+.sticker-1 { top: 599px; left: 3%; transform: rotate(-5deg); } 
+.sticker-2 { top: 999px; right: 5%; transform: rotate(10deg); width: 60px; } 
+.sticker-3 { top: 1599px; right: 30%; transform: rotate(3deg); }
+.sticker-4 { top: 2199px; left: 2%; transform: rotate(-12deg); }
+.sticker-5 { top: 699px; left: 40%; transform: rotate(8deg); }
+.sticker-6 { top: 1899px; right: 20%; transform: rotate(-3deg); }
+.sticker-7 { top: 1299px; right: 10%; transform: rotate(15deg); }
+.sticker-8 { top: 2499px; right: 40%; transform: rotate(-8deg); }
+.sticker-9 { top: 1149px; left: 40%; transform: rotate(12deg); }
+.sticker-10 { top: 499px; right: 1%; transform: rotate(5deg); width: 100px; }
+.sticker-11 { top: 1999px; left: 50%; transform: rotate(-15deg); }
+
+
+@font-face{
+    font-family: 'New Rocker Custom';
+    src: url('fonts/header/NewRocker-Regular.ttf') format('truetyp');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ body {
+    font-family:'Nunito-Medium', sans-serif;
+    font-size:3em;
+    line-height:1.5;
+    color:#444;
+ }
+
+
+ header {
+    font-family: 'New Rocker Custom', Bold;
+    font-size: 3em;
+    text-align: center;
+    padding: 30px;
+    background-color:#eee;
+    text-decoration-color:rgb(235, 6, 82)
+ }
+ 
+ header h1{ 
+    font-family:'New Rocker Custom', Bold;
+    text-transform: capitalize;
+ }
